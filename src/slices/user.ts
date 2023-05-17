@@ -1,0 +1,24 @@
+import {createSlice} from '@reduxjs/toolkit';
+
+// 전역 상태_전역 상태관리
+const initialState = {
+  name: '',
+  email: '',
+  accessToken: '',
+};
+
+// Reducer: 상태를 조작
+const userSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    setUser(state, action) {
+      state.email = action.payload.email;
+      state.name = action.payload.name;
+      state.accessToken = action.payload.accessToken;
+    },
+  },
+  extraReducers: () => {}, // builder
+});
+
+export default userSlice;
